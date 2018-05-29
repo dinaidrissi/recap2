@@ -62,17 +62,18 @@ let arrStudents = ["Adam Cichy",
 "Julie Titte Helt Lund",
 "Wioletta Gluza"];
 
-arrStudents.forEach(addStudent);
+function buildList(){
+    arrStudents.forEach(addStudent);
+}
     
 function addStudent(student){
       // show the student
     console.log("here's ", student);
     let temp = document.querySelector("#studentinfo").content;
     let clone = temp.cloneNode(true);
-
-    clone.querySelector(firstname).textContent = student.firstname;
-    console.log(student.firstname);
-
+//clone elements
+  clone.querySelector(span.dataset.json).textContent = student.firstname;
+  console.log(student.firstname);
     let students = document.querySelector("#students");
     students.appendChild(clone);
 }
