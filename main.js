@@ -1,5 +1,5 @@
 let arrStudents = ["Adam Cichy",
-"Kamille Mai Rye",
+ "Kamille Mai Rye",
 "Ã˜jvind Hougaard Rasmussen",
 "Alexander Ellegaard Landberg",
 "Katrine Marie Kofoed Nielsen",
@@ -61,19 +61,69 @@ let arrStudents = ["Adam Cichy",
 "VÃ­tek Linhart",
 "Julie Titte Helt Lund",
 "Wioletta Gluza"];
+document.addEventListener("DOMContentLoaded", buildList);
 
 function buildList(){
+    //foreach og kalder på næste funktion
     arrStudents.forEach(addStudent);
 }
     
 function addStudent(student){
       // show the student
-    console.log("here's ", student);
+    //console.log("here's ", student);
     let temp = document.querySelector("#studentinfo").content;
+    let infoNames = document.getElementById("#infoNames");
     let clone = temp.cloneNode(true);
 //clone elements
-  clone.querySelector(span.dataset.json).textContent = student.firstname;
-  console.log(student.firstname);
+clone.querySelector("span").getAttribute("data-json").textContent = student;
+   //console.log(clone.querySelector("span").getAttribute("data-json").textContent = student);
     let students = document.querySelector("#students");
+    //getNameParts();
     students.appendChild(clone);
+    
 }
+
+
+
+function getNameParts(fullname){
+    let fullName = arrStudents.map(getNameParts);
+    console.log(fullName);
+    let fullNameT = fullName.join(" ");
+    console.log(fullNameT);
+    let space1 = fullName.indexOf(" ");
+    
+    console.log("space1", space1);
+
+    let space2num = space1 +1;
+
+    let space2 = fullName.indexOf(" ", space2num);
+    console.log("space2", space2);
+
+    let nameLength = fullName.length;
+    console.log(nameLength);
+
+    let spaceCount = (fullName.split(" ").length -1);
+    console.log(spaceCount);
+
+    if (spaceCount <= 1){
+
+        const firstName1 = fullName.substring(0, space1);
+        console.log("first name:", firstName);  
+       
+        const lastName1 = fullName.substring(space1, nameLength);
+        console.log("last name:", lastName1);
+
+} else {
+
+    const firstName = fullName.substring(0, space1);
+    console.log("first name:", firstName);
+    
+    const middleName = fullName.substring(space2num, fullName.lastIndexOf(" "));
+    console.log("middle name:", middleName);
+
+    const lastName = fullName.substring(fullName.lastIndexOf(" "), nameLength);
+    console.log("last name:", lastName);
+ }
+
+}
+getNameParts();
