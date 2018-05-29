@@ -86,12 +86,14 @@ clone.querySelector("span").getAttribute("data-json").textContent = student;
 
 
 function getNameParts(fullname){
+    
     let fullName = arrStudents.map(getNameParts);
     console.log(fullName);
     let fullNameT = fullName.join(" ");
     console.log(fullNameT);
+
     let space1 = fullName.indexOf(" ");
-    
+
     console.log("space1", space1);
 
     let space2num = space1 +1;
